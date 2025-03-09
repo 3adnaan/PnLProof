@@ -23,39 +23,43 @@ def generate_proof_hash(stocks, pnl):
     data_string = f"{stocks}{pnl}"
     return hashlib.sha256(data_string.encode('utf-8')).hexdigest()
 
-
 class Portfolio:
-    def __init__(self, initial_trades=None, initial_pnl=None) -> None:
-        self.stocks = initial_trades if initial_trades else {}
-        self.pnl = initial_pnl if initial_pnl else {}
+    """Make portfolio class, with helper functions."""
+    def __init__(self, initial_trades=dict(), initial_pnl=dict()) -> None:
+        self.stocks = initial_trades
+        self.pnl = initial_pnl
 
     def update_stock(self, trade: dict) -> None:
-        ticker = trade["ticker"]
-        volume = float(trade["volume"])
-        strike_price = float(trade["strike_price"])
-
-        if ticker not in self.pnl:
-            self.pnl[ticker] = volume * strike_price
-            self.stocks[ticker] = volume
+        """Update exposure to certain stock."""
+        if trade["ticker"] not in self.pnl.keys():
+            self.pnl[trade["ticker"]] =\
+                float(trade["volume"]) * float(trade["strike_price"])
+            self.stocks[trade["ticker"]] = float(trade["volume"])
         else:
-            self.pnl[ticker] += volume * strike_price
-            self.stocks[ticker] += volume
+            self.pnl[trade["ticker"]] +=\
+                float(trade["volume"]) * float(trade["strike_price"])
+            self.stocks[trade["ticker"]] += float(trade["volume"])
 
-    def date_range_PF(self, new_trades=None, start=None, end=None):
-        """Filter trades by date and update portfolio"""
-        if start is not None and isinstance(start, str):
-            start = convertDate(start)  # Convert start date to timestamp
-        if end is not None and isinstance(end, str):
-            end = convertDate(end)  # Convert end date to timestamp
-        for trade in new_trades or []:
-            trade_time = convertDate(trade["time"])
-            if start <= trade_time < end:
+    def date_range_PF(self, start=0, end=100000000000, new_trades=None):
+        """Calculate portfolio value within date range
+        Date should be inputted in the following format:
+        WeekDay Mon MM YYYY HH:MM:SS GMT+0100 (Central European Standard Time)
+        """
+        if not isinstance(start, int):
+            start = convertDate(start)
+        if not isinstance(end, int):
+            end = convertDate(end)
+
+        for trade in new_trades:
+            if start <= convertDate(trade["time"]) < end:
                 self.update_stock(trade)
 
     def __str__(self):
-        clean_stocks = {key: round(value, 2) for key, value in self.stocks.items()}
+        clean_stocks = {key: round(value, 2)
+                        for key, value in self.stocks.items()}
         clean_pnl = {key: round(value, 2) for key, value in self.pnl.items()}
         return f"Stock holdings: {clean_stocks}\nPnL per Stock: {clean_pnl}"
+
 
 @app.route('/api/generate-proof', methods=['POST'])
 def generate_proof():
@@ -79,18 +83,28 @@ def generate_proof():
         except requests.RequestException as e:
             return jsonify({"error": f"Failed to fetch trade data: {str(e)}"}), 500
 
+
         # Create portfolio and process trades
+        print(f"reached portfolio creation")
         myPortfolio = Portfolio()
         myPortfolio.date_range_PF(new_trades=new_trades, start=start_date, end=end_date)
         if not myPortfolio.stocks:
             raise ValueError("There were no trades in the time period specified.")
 
         # Calculate PnL amount (total sum of the PnL values)
+        print("Reached pnl calculation")
         pnl_amount = sum(myPortfolio.pnl.values())
 
         # Generate proof hash
+        print("Reached pre-hash")
         proof_hash = generate_proof_hash(myPortfolio.stocks, myPortfolio.pnl)
-
+        print("something")
+        pprint(jsonify({
+            "proof_hash": proof_hash,
+            "pnl_amount": round(pnl_amount, 2),
+            "stocks": myPortfolio.stocks,
+            "pnl": myPortfolio.pnl
+        }))
         # Return portfolio details, PnL amount, and proof hash
         return jsonify({
             "proof_hash": proof_hash,
