@@ -43,3 +43,9 @@ Ensure you have the following tools installed:
     python app.py
     ```
  
+## Constraints
+
+Due to time constraints, we did not connect the wallet to a DEX. We deployed a local API instead using Mockoon, an open-source mock API creator.
+1. Install [Mockoon](https://mockoon.com/download/)
+2. Open _Mockoon_API_test.json_ as a new local environment.
+3. Connect to the API URL found in the settings.
