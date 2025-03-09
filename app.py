@@ -4,6 +4,7 @@ import requests
 from dateutil import parser
 from datetime import datetime
 import hashlib  # For generating a proof hash
+from pprint import pprint
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -16,10 +17,12 @@ def convertDate(date: str) -> int:
     date_obj = parser.parse(cleaned_date_string)
     return int(date_obj.timestamp())
 
+
 def generate_proof_hash(stocks, pnl):
     """Generate a proof hash from stocks and PnL data"""
     data_string = f"{stocks}{pnl}"
     return hashlib.sha256(data_string.encode('utf-8')).hexdigest()
+
 
 class Portfolio:
     def __init__(self, initial_trades=None, initial_pnl=None) -> None:
@@ -30,7 +33,7 @@ class Portfolio:
         ticker = trade["ticker"]
         volume = float(trade["volume"])
         strike_price = float(trade["strike_price"])
-        
+
         if ticker not in self.pnl:
             self.pnl[ticker] = volume * strike_price
             self.stocks[ticker] = volume
@@ -44,7 +47,6 @@ class Portfolio:
             start = convertDate(start)  # Convert start date to timestamp
         if end is not None and isinstance(end, str):
             end = convertDate(end)  # Convert end date to timestamp
-
         for trade in new_trades or []:
             trade_time = convertDate(trade["time"])
             if start <= trade_time < end:
@@ -80,6 +82,8 @@ def generate_proof():
         # Create portfolio and process trades
         myPortfolio = Portfolio()
         myPortfolio.date_range_PF(new_trades=new_trades, start=start_date, end=end_date)
+        if not myPortfolio.stocks:
+            raise ValueError("There were no trades in the time period specified.")
 
         # Calculate PnL amount (total sum of the PnL values)
         pnl_amount = sum(myPortfolio.pnl.values())
@@ -97,6 +101,7 @@ def generate_proof():
 
     except Exception as e:
         return jsonify({"error": f"Server error: {str(e)}"}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)

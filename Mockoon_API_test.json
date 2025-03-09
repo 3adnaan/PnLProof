@@ -17,7 +17,7 @@
       "responses": [
         {
           "uuid": "63b0cb8c-b4ee-4de1-b015-6e292c39e9bd",
-          "body": "[\r\n  {{#repeat 10}}\r\n  {\r\n      \"time\": \"{{faker 'date.recent' days=30}}\",\r\n      \"ticker\": \"{{faker 'helpers.arrayElement' (array 'AAPL' 'GOOGL' 'NVDA' 'MSFT')}}\",\r\n      \"volume\": \"{{faker 'finance.amount' dec=2 min=-10 max=10}}\",\r\n      \"strike_price\": \"{{faker 'finance.amount' dec=2 min=100 max=200}}\"\r\n\r\n  }\r\n  {{/repeat}}\r\n]",
+          "body": "[\r\n  {{#repeat 50}}\r\n  {\r\n      \"time\": \"{{date '2025-01-01' '2025-03-09' \"yyyy-MM-dd'\"}}\",\r\n      \"ticker\": \"{{faker 'helpers.arrayElement' (array 'AAPL' 'GOOGL' 'NVDA' 'MSFT')}}\",\r\n      \"volume\": \"{{faker 'finance.amount' dec=2 min=-10 max=10}}\",\r\n      \"strike_price\": \"{{faker 'finance.amount' dec=2 min=100 max=200}}\"\r\n\r\n  }\r\n  {{/repeat}}\r\n]",
           "latency": 500,
           "statusCode": 200,
           "label": "",
