@@ -50,7 +50,7 @@ describe('numberProof', () => {
     await txn.sign([zkAppPrivateKey, proverKey]).send();
 
     // Get user input for x
-    const userInput = 50; // Change this to test different values
+    const userInput = 10573; // Change this to test different values
     const x = Field(userInput);
     const timestamp = Field(20240309); // Example date (YYYYMMDD)
     const signature = Signature.create(proverKey, [x, timestamp]);

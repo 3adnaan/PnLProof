@@ -9,13 +9,12 @@ import {
 } from 'o1js';
 
 export class NumberProof extends SmartContract {
-  // Store the claimed number
+  // Store the verified number
   @state(Field) number = State<Field>();
   // Store the timestamp
   @state(Field) timestamp = State<Field>();
   // Store the owner
   @state(PublicKey) owner = State<PublicKey>();
-  @state(Field) pnl = 22;
 
   init() {
     super.init();
@@ -28,8 +27,8 @@ export class NumberProof extends SmartContract {
     // Verify the owner of the proof
     signature.verify(owner, [x, yyyymmdd]).assertTrue();
 
-    // Check that x is exactly 50
-    x.assertEquals(Field(50));
+    // Check that x is exactly 10573
+    x.assertEquals(Field(10573));
 
     // Store the number and timestamp
     this.number.set(x);
