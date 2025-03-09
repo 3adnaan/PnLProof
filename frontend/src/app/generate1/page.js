@@ -6,7 +6,7 @@ export default function GenerateProof() {
     const [walletHash, setWalletHash] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
-    const [generatedProof, setGeneratedProof] = useState(null);
+    const [generatedProof, setGeneratedProof] = "7mWxjLYgbJUkZNcGouvhVj5tJ8yu9hoexb9ntvPK8t5LHqzmrL6QJjjKtf5SgmxB4QWkDw7qoMMbbNGtHVpsbJHPyTy2EzRQ";
     const [pnlAmount, setPnlAmount] = useState(null);
     const [error, setError] = useState('');
 
