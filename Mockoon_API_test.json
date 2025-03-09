@@ -1,0 +1,99 @@
+{
+  "uuid": "bd57a85d-9401-40fe-bde8-1c2c20af923e",
+  "lastMigration": 33,
+  "name": "MINA test",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "6630bd70-8412-49d8-a56d-d8c8e878cab6",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "users",
+      "responses": [
+        {
+          "uuid": "63b0cb8c-b4ee-4de1-b015-6e292c39e9bd",
+          "body": "[\r\n  {{#repeat 10}}\r\n  {\r\n      \"time\": \"{{faker 'date.recent' days=30}}\",\r\n      \"ticker\": \"{{faker 'helpers.arrayElement' (array 'AAPL' 'GOOGL' 'NVDA' 'MSFT')}}\",\r\n      \"volume\": \"{{faker 'finance.amount' dec=2 min=-10 max=10}}\",\r\n      \"strike_price\": \"{{faker 'finance.amount' dec=2 min=100 max=200}}\"\r\n\r\n  }\r\n  {{/repeat}}\r\n]",
+          "latency": 500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "6630bd70-8412-49d8-a56d-d8c8e878cab6"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}
