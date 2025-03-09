@@ -43,7 +43,7 @@ export default function GenerateProof() {
 
         // Replace with actual logic to generate proof
         const proof = `Generated proof for wallet: ${walletHash}, Period: ${startDate} to ${endDate}`;
-        const pnl = Math.random() * 1000; // Example random PNL amount
+        const pnl = 10573; // Example random PNL amount
 
         setGeneratedProof(proof);
         setPnlAmount(pnl.toFixed(2));

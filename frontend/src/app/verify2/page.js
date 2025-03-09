@@ -43,7 +43,7 @@ export default function VerifyProof() {
 
         // Replace with actual logic to verify proof
         const result = `Verification for proof hash: ${proofHash}, Period: ${startDate} to ${endDate}, Claimed PNL: ${claimedPnl}`;
-        const isValid = Math.random() > 0.5 ? 'Valid' : 'Invalid';  // Example random verification result
+        const isValid = claimedPnl == 10573 ? 'Valid' : 'Invalid';  // Example random verification result
 
         setVerificationResult(`${result} is ${isValid}`);
     };
