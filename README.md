@@ -1,6 +1,6 @@
 # Introducing PnLProof
 
-This project implements a Proof of Profit and Loss (PnL) system that allows users to generate cryptographic proofs and verify the accuracy of their portfolio's PnL over a specified period. By leveraging Zero-Knowledge Proofs (ZKPs), users can prove the correctness of their PnL calculations without revealing sensitive transaction data. The idea is for the system to integrate with a decentralized exchange (DEX) API to fetch wallet transaction histories and calculate the PnL for given periods. For demonstration purposes, we are currently fetching this data from a local API.
+This project implements a Proof of Profit and Loss (PnL) system that allows users to generate zk-proofs and verify the accuracy of their portfolio's PnL over a specified period. By leveraging Zero-Knowledge Proofs (ZKPs), users can prove the correctness of their PnL calculations without revealing sensitive transaction data. The idea is for the system to integrate with a decentralized exchange (DEX) API to fetch wallet transaction histories and calculate the PnL for given periods. For demonstration purposes, we are currently fetching this data from a local API.
 
 ## Key Functionalities
 
