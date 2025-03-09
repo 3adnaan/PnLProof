@@ -56,7 +56,7 @@ class Portfolio:
 
 
 # LOAD TRADES FROM API
-url = "http://localhost:3001/users"  # Check it in the Mockoon instance
+url = "http://localhost:3002/users"  # Check it in the Mockoon instance
 myResponse = requests.get(url)
 new_trades = json.loads(myResponse.content)
 

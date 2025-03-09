@@ -14,8 +14,7 @@ export default function GenerateProof() {
         const selectedStartDate = e.target.value;
         setStartDate(selectedStartDate);
 
-        // If start date is after end date, show error
-        if (selectedStartDate > endDate && endDate !== '') {
+        if (endDate && selectedStartDate > endDate) {
             setError('Start date cannot be after end date');
         } else {
             setError('');
@@ -26,27 +25,43 @@ export default function GenerateProof() {
         const selectedEndDate = e.target.value;
         setEndDate(selectedEndDate);
 
-        // If end date is before start date, show error
-        if (selectedEndDate < startDate && startDate !== '') {
+        if (startDate && selectedEndDate < startDate) {
             setError('End date cannot be before start date');
         } else {
             setError('');
         }
     };
 
-    const handleGenerateProof = () => {
-        // If there’s an error or any required field is empty, prevent generating proof
-        if (error || !walletHash || !startDate || !endDate) {
+    const handleGenerateProof = async () => {
+        setError(''); // Clear previous errors
+
+        console.log("walletHash:", walletHash);
+        console.log("startDate:", startDate);
+        console.log("endDate:", endDate);
+
+        if (!walletHash || !startDate || !endDate) {
             setError('All fields are required');
             return;
         }
 
-        // Replace with actual logic to generate proof
-        const proof = `Generated proof for wallet: ${walletHash}, Period: ${startDate} to ${endDate}`;
-        const pnl = Math.random() * 1000; // Example random PNL amount
+        try {
+            const response = await fetch('http://127.0.0.1:5000/api/generate-proof', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ walletHash, startDate, endDate }),
+            });
 
-        setGeneratedProof(proof);
-        setPnlAmount(pnl.toFixed(2));
+            const data = await response.json();
+
+            if (response.ok) {
+                setGeneratedProof(data.proof_hash);
+                setPnlAmount(data.pnl_amount);
+            } else {
+                setError(data.error || 'An error occurred');
+            }
+        } catch (err) {
+            setError('Failed to connect to the backend');
+        }
     };
 
     return (
@@ -88,7 +103,7 @@ export default function GenerateProof() {
                 </div>
             </div>
 
-            <button onClick={handleGenerateProof} className="btn" disabled={error}>
+            <button onClick={handleGenerateProof} className="btn">
                 Generate Proof
             </button>
 
@@ -96,9 +111,32 @@ export default function GenerateProof() {
 
             {generatedProof && (
                 <div className="proof-result">
-                    <h2>Generated Proof:</h2>
+                    <h2>Generated Proof Hash:</h2>
                     <p>{generatedProof}</p>
-                    <p>PNL Amount: ${pnlAmount}</p>
+                    <h3>PNL Amount: ${pnlAmount}</h3>
+
+                    {/* Optional: Display stocks and pnl breakdown */}
+                    <div>
+                        <h3>Stock Holdings:</h3>
+                        <ul>
+                            {Object.keys(data.stocks).map((ticker) => (
+                                <li key={ticker}>
+                                    {ticker}: {data.stocks[ticker]} shares
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>PnL per Stock:</h3>
+                        <ul>
+                            {Object.keys(data.pnl).map((ticker) => (
+                                <li key={ticker}>
+                                    {ticker}: ${data.pnl[ticker].toFixed(2)}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             )}
         </div>
