@@ -1,0 +1,352 @@
+[
+    {
+        "time": "2025-03-03",
+        "ticker": "MSFT",
+        "volume": "-7.79",
+        "strike_price": "154.71"
+  
+    },
+    {
+        "time": "2025-01-23",
+        "ticker": "GOOGL",
+        "volume": "0.44",
+        "strike_price": "176.57"
+  
+    },
+    {
+        "time": "2025-02-08",
+        "ticker": "AAPL",
+        "volume": "8.68",
+        "strike_price": "107.51"
+  
+    },
+    {
+        "time": "2025-03-03",
+        "ticker": "GOOGL",
+        "volume": "-9.89",
+        "strike_price": "125.65"
+  
+    },
+    {
+        "time": "2025-02-05",
+        "ticker": "GOOGL",
+        "volume": "-5.49",
+        "strike_price": "160.47"
+  
+    },
+    {
+        "time": "2025-02-11",
+        "ticker": "MSFT",
+        "volume": "-2.63",
+        "strike_price": "166.82"
+  
+    },
+    {
+        "time": "2025-02-09",
+        "ticker": "NVDA",
+        "volume": "0.53",
+        "strike_price": "130.84"
+  
+    },
+    {
+        "time": "2025-02-14",
+        "ticker": "AAPL",
+        "volume": "7.69",
+        "strike_price": "157.67"
+  
+    },
+    {
+        "time": "2025-02-09",
+        "ticker": "GOOGL",
+        "volume": "1.26",
+        "strike_price": "165.26"
+  
+    },
+    {
+        "time": "2025-02-04",
+        "ticker": "AAPL",
+        "volume": "3.35",
+        "strike_price": "101.55"
+  
+    },
+    {
+        "time": "2025-01-13",
+        "ticker": "AAPL",
+        "volume": "6.31",
+        "strike_price": "127.76"
+  
+    },
+    {
+        "time": "2025-01-19",
+        "ticker": "AAPL",
+        "volume": "5.94",
+        "strike_price": "117.40"
+  
+    },
+    {
+        "time": "2025-02-28",
+        "ticker": "AAPL",
+        "volume": "-3.76",
+        "strike_price": "178.62"
+  
+    },
+    {
+        "time": "2025-01-19",
+        "ticker": "MSFT",
+        "volume": "-7.87",
+        "strike_price": "144.44"
+  
+    },
+    {
+        "time": "2025-02-22",
+        "ticker": "MSFT",
+        "volume": "-9.65",
+        "strike_price": "177.28"
+  
+    },
+    {
+        "time": "2025-02-12",
+        "ticker": "MSFT",
+        "volume": "-8.76",
+        "strike_price": "131.49"
+  
+    },
+    {
+        "time": "2025-01-26",
+        "ticker": "GOOGL",
+        "volume": "-5.14",
+        "strike_price": "152.94"
+  
+    },
+    {
+        "time": "2025-01-03",
+        "ticker": "NVDA",
+        "volume": "-0.89",
+        "strike_price": "142.56"
+  
+    },
+    {
+        "time": "2025-02-03",
+        "ticker": "GOOGL",
+        "volume": "2.55",
+        "strike_price": "177.05"
+  
+    },
+    {
+        "time": "2025-02-06",
+        "ticker": "AAPL",
+        "volume": "-5.46",
+        "strike_price": "117.58"
+  
+    },
+    {
+        "time": "2025-01-16",
+        "ticker": "AAPL",
+        "volume": "-4.98",
+        "strike_price": "103.10"
+  
+    },
+    {
+        "time": "2025-01-06",
+        "ticker": "AAPL",
+        "volume": "-8.49",
+        "strike_price": "142.62"
+  
+    },
+    {
+        "time": "2025-02-13",
+        "ticker": "AAPL",
+        "volume": "0.34",
+        "strike_price": "172.00"
+  
+    },
+    {
+        "time": "2025-03-02",
+        "ticker": "NVDA",
+        "volume": "3.13",
+        "strike_price": "193.35"
+  
+    },
+    {
+        "time": "2025-01-19",
+        "ticker": "AAPL",
+        "volume": "-7.63",
+        "strike_price": "164.66"
+  
+    },
+    {
+        "time": "2025-03-06",
+        "ticker": "NVDA",
+        "volume": "-5.15",
+        "strike_price": "109.67"
+  
+    },
+    {
+        "time": "2025-01-19",
+        "ticker": "MSFT",
+        "volume": "1.15",
+        "strike_price": "115.38"
+  
+    },
+    {
+        "time": "2025-02-06",
+        "ticker": "NVDA",
+        "volume": "1.77",
+        "strike_price": "114.84"
+  
+    },
+    {
+        "time": "2025-03-06",
+        "ticker": "MSFT",
+        "volume": "7.03",
+        "strike_price": "197.44"
+  
+    },
+    {
+        "time": "2025-01-27",
+        "ticker": "AAPL",
+        "volume": "6.33",
+        "strike_price": "158.96"
+  
+    },
+    {
+        "time": "2025-02-12",
+        "ticker": "MSFT",
+        "volume": "6.13",
+        "strike_price": "175.95"
+  
+    },
+    {
+        "time": "2025-01-12",
+        "ticker": "NVDA",
+        "volume": "2.18",
+        "strike_price": "119.36"
+  
+    },
+    {
+        "time": "2025-03-05",
+        "ticker": "GOOGL",
+        "volume": "-3.04",
+        "strike_price": "128.65"
+  
+    },
+    {
+        "time": "2025-01-17",
+        "ticker": "AAPL",
+        "volume": "0.98",
+        "strike_price": "184.44"
+  
+    },
+    {
+        "time": "2025-01-10",
+        "ticker": "GOOGL",
+        "volume": "1.38",
+        "strike_price": "104.82"
+  
+    },
+    {
+        "time": "2025-02-26",
+        "ticker": "GOOGL",
+        "volume": "-1.84",
+        "strike_price": "188.90"
+  
+    },
+    {
+        "time": "2025-02-06",
+        "ticker": "GOOGL",
+        "volume": "-8.36",
+        "strike_price": "134.73"
+  
+    },
+    {
+        "time": "2025-01-20",
+        "ticker": "AAPL",
+        "volume": "5.04",
+        "strike_price": "138.20"
+  
+    },
+    {
+        "time": "2025-02-11",
+        "ticker": "GOOGL",
+        "volume": "3.85",
+        "strike_price": "104.46"
+  
+    },
+    {
+        "time": "2025-02-10",
+        "ticker": "NVDA",
+        "volume": "-9.25",
+        "strike_price": "101.06"
+  
+    },
+    {
+        "time": "2025-01-16",
+        "ticker": "AAPL",
+        "volume": "5.33",
+        "strike_price": "100.30"
+  
+    },
+    {
+        "time": "2025-03-07",
+        "ticker": "AAPL",
+        "volume": "-4.54",
+        "strike_price": "143.54"
+  
+    },
+    {
+        "time": "2025-01-16",
+        "ticker": "MSFT",
+        "volume": "9.13",
+        "strike_price": "150.71"
+  
+    },
+    {
+        "time": "2025-01-16",
+        "ticker": "GOOGL",
+        "volume": "-7.18",
+        "strike_price": "146.79"
+  
+    },
+    {
+        "time": "2025-01-17",
+        "ticker": "MSFT",
+        "volume": "2.69",
+        "strike_price": "126.70"
+  
+    },
+    {
+        "time": "2025-01-09",
+        "ticker": "AAPL",
+        "volume": "-8.54",
+        "strike_price": "140.76"
+  
+    },
+    {
+        "time": "2025-01-19",
+        "ticker": "NVDA",
+        "volume": "7.20",
+        "strike_price": "172.27"
+  
+    },
+    {
+        "time": "2025-01-20",
+        "ticker": "MSFT",
+        "volume": "-5.92",
+        "strike_price": "186.80"
+  
+    },
+    {
+        "time": "2025-02-27",
+        "ticker": "GOOGL",
+        "volume": "-8.33",
+        "strike_price": "185.17"
+  
+    },
+    {
+        "time": "2025-02-04",
+        "ticker": "MSFT",
+        "volume": "-2.49",
+        "strike_price": "110.17"
+  
+    }
+  ] 
